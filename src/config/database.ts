@@ -1,6 +1,7 @@
 import { Sequelize } from 'sequelize-typescript';
 import dotenv from "dotenv";
 import { Product } from '../models/product.model';
+import { User } from '../models/user.model';
 
 dotenv.config();
 
@@ -11,7 +12,8 @@ export const sequelize = new Sequelize({
     port: parseInt("3306"),
     username: 'root',
     // password: 'Wily0734?',
-    models: [Product]
+    models: [Product,User],
+    logging: console.log 
 });
 
 export const connectToDatabase = async () => {
